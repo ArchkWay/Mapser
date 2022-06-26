@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<fragment xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:map="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/map"
+    android:name="com.google.android.gms.maps.SupportMapFragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MapsActivity" >
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <Button
+            android:id="@+id/btnClear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/clear"
+            android:layout_margin="15dp"
+            android:background="@color/white"
+            map:layout_constraintBottom_toBottomOf="parent"
+            />
+
+        <Button
+            android:id="@+id/btnA"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:text="@string/a"
+            android:layout_margin="15dp"
+            map:layout_constraintBottom_toTopOf="@id/btnClear"
+            map:layout_constraintStart_toStartOf="parent"
+            />
+
+
+        <Button
+            android:id="@+id/btnB"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:text="@string/b"
+            android:layout_margin="15dp"
+            map:layout_constraintBottom_toTopOf="@id/btnClear"
+            map:layout_constraintEnd_toEndOf="parent"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</fragment>

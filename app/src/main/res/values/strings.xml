@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Mapser</string>
+    <string name="title_activity_maps">MapsActivity</string>
+    <string name="clear">стереть</string>
+    <string name="a">A</string>
+    <string name="b">Б</string>
+</resources>
