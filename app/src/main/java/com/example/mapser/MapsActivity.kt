@@ -23,11 +23,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     private var locationA: LatLng? = null
     private var countMarkers = 0
     private val destination = 0.002
-    private val START_LNG = -180.0
-    private val END_LNG = 180.0
-    private val START_LAT = -85.0
-    private val ZERO = 0.0
-    private val END_LAT = 85.0
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,6 +32,10 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
+        initUi()
+    }
+
+    private fun initUi(){
         val btnClear = findViewById<Button>(R.id.btnClear)
         val btnA = findViewById<Button>(R.id.btnA)
         val btnB = findViewById<Button>(R.id.btnB)
@@ -74,8 +74,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         val polylineOptions = PolylineOptions()
             .add(LatLng(a.latitude, a.longitude))
             .add(LatLng(b.latitude, b.longitude))
-            .add(LatLng(ZERO + b.latitude + b.latitude, END_LNG))
-            .add(LatLng(a.latitude, a.longitude))
         mMap.addPolyline(polylineOptions)
     }
 
@@ -84,8 +82,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         if(countMarkers < 2) {
             countMarkers++
             mMap.setOnMapClickListener {
-                println("__ lat ${it.latitude}")
-                println("__ lng ${it.longitude}")
                 when(countMarkers) {
                     1 -> locationA = it
                     2 -> polyline(it)
